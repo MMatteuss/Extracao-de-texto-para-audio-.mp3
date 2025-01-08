@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from gtts import gTTS
+import os
 
 app = Flask(__name__)
 
@@ -13,19 +14,27 @@ def enviar():
     nomeArquivo = request.form['nomeArquivo']
     lingua = request.form['idiomas']
 
-    audio(textoHtml=texto, nomeArquivoHtml=nomeArquivo, linguaHtml=lingua)
+    #region
+    pasta = "audios"
+    os.makedirs(pasta, exist_ok=True)
 
-    return render_template('home.html')
+    caminhoAudio = audio(textoHtml=texto, nomeArquivoHtml=nomeArquivo, linguaHtml=lingua, pasta=pasta)
+    return send_file(caminhoAudio, as_attachment=True)
+    #endregion
 
-
-def audio(textoHtml, nomeArquivoHtml, linguaHtml):
+def audio(textoHtml, nomeArquivoHtml, linguaHtml, pasta):
     texto = textoHtml
     lingua = linguaHtml
-    nomeAudio = nomeArquivoHtml+".mp3"
+    nomeAudio = f"{nomeArquivoHtml}.mp3"
+
+    #region
+    caminhoAudio = os.path.join(pasta, nomeAudio)
 
     audio = gTTS(text=texto, lang=lingua, slow=False)
+    audio.save(caminhoAudio)
 
-    audio.save(nomeAudio)
+    return caminhoAudio
+    #endregion
 
 if __name__ == '__main__':
     app.run(debug=True)

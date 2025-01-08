@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    
     <form method="POST" action="/enviar">
-        <label for="textos">Texto:</label>
-        <input type="text" id="textos" name="textos">
+        <p><label for="textos">Texto:</label></p>
+        <textarea id="textos" name="textos" rows="4" cols="50"></textarea>
         <br>
         <label for="selectIdioma">Selecione idioma:</label>
         <select name="idiomas" id="idiomas">
@@ -22,9 +21,8 @@
         <label for="nomeArquivo">Nome do Arquivo:</label>
         <input type="text" name="nomeArquivo" id="nomeArquivo">
         <br>
-        <input type="submit" value="Enviar" id="btn" onclick="apertou()">
+        <input type="submit" value="Enviar" id="btn">
     </form>
-    {{upload}}
 </body>
 <script type="text/javascript" src="../static/main.js"></script>
 </html>

@@ -1,13 +1,14 @@
-var btn = document.getElementById("btn").disabled = true;
-var number = 0
+document.getElementById("btn").disabled = true;
+var numberEnviar = 0
 
+// Botão enviar
 document.getElementById("textos").addEventListener("input", function(event){
     var textos = document.getElementById("textos").value;
 
     if (textos !== null  && textos !== '') {
-      number= number + 1;
+      numberEnviar= numberEnviar + 1;
     } else {
-      number=0
+      numberEnviar=0
     }
 });
 
@@ -15,14 +16,14 @@ document.getElementById("nomeArquivo").addEventListener("input", function(event)
     var nomeArquivo = document.getElementById("nomeArquivo").value;
 
     if (nomeArquivo !== null  && nomeArquivo !== '') {
-        number= number + 1;
+        numberEnviar= numberEnviar + 1;
     } else {
-      number=0
+      numberEnviar=0
     }
 });
 
 document.addEventListener("input", function event(){
-    if (number == 2){
+    if (numberEnviar == 2){
         document.getElementById("btn").disabled = false;
     }
 })
