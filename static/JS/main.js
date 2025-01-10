@@ -1,7 +1,7 @@
 document.getElementById("btn").disabled = true;
 var numberEnviar = 0
 
-// Botão enviar
+// Botão download
 document.getElementById("textos").addEventListener("input", function(event){
     var textos = document.getElementById("textos").value;
 
@@ -27,16 +27,3 @@ document.addEventListener("input", function event(){
         document.getElementById("btn").disabled = false;
     }
 })
-
-
-
-// Prevenção de envio sem texto
-const form = document.querySelector("form");
-const textarea = document.getElementById("textos");
-
-form.addEventListener("submit", function (e) {
-    if (!textarea.value.trim()) {
-        e.preventDefault();
-        alert("Por favor, insira um texto antes de enviar.");
-    }
-});
