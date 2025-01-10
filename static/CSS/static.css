@@ -1,0 +1,7 @@
+body{
+    background-image: -webkit-radial-gradient(center, ellipse cover, #343c64 1%, #030253 100%);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}

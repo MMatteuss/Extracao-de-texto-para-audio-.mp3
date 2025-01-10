@@ -27,3 +27,16 @@ document.addEventListener("input", function event(){
         document.getElementById("btn").disabled = false;
     }
 })
+
+
+
+// Prevenção de envio sem texto
+const form = document.querySelector("form");
+const textarea = document.getElementById("textos");
+
+form.addEventListener("submit", function (e) {
+    if (!textarea.value.trim()) {
+        e.preventDefault();
+        alert("Por favor, insira um texto antes de enviar.");
+    }
+});
